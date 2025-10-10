@@ -2,6 +2,40 @@
 
 This is the main repo for my Kubernetes home lab, fully automated using Talos, Terraform, and ArgoCD.
 
+```mermaid
+%% This diagram shows the GitOps flow from repositories to the running state.
+graph TD;
+    %% Define the source of truth repositories
+    subgraph "Git Repositories"
+        direction LR
+        Repo1("Talos Config Repo<br/>Defines the K8s cluster itself");
+        Repo2("Terraform Repo<br/>Installs core services");
+        Repo3("Helm Charts Repo<br/>Defines applications");
+    end
+
+    %% Define the live state components inside the cluster
+    subgraph "Kubernetes Cluster"
+        direction TB
+        Cluster("Talos Kubernetes Cluster");
+        ArgoCD("ArgoCD");
+        CoreServices("Core Services<br/>MetalLB, Ingress-Nginx");
+        Apps("Deployed Applications");
+    end
+
+    %% Define the flow from repos to cluster state
+    Repo1 -- "Builds & Configures" --> Cluster;
+    Repo2 -- "Installs" --> CoreServices;
+    Repo2 -- "Installs" --> ArgoCD;
+    
+    ArgoCD -- "Watches" --> Repo3;
+    ArgoCD -- "Deploys & Manages" --> Apps;
+
+    %% Show dependencies within the cluster
+    CoreServices -- "Run inside" --> Cluster;
+    ArgoCD -- "Runs inside" --> Cluster;
+    Apps -- "Run inside" --> Cluster;
+```
+
 ## Cluster Hardware
 
 This cluster runs on the following hardware:
