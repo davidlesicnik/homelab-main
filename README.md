@@ -17,10 +17,10 @@ This cluster runs on the following hardware:
 
 ## How It Works
 
-The setup is split into three Git repos for a clean separation of concerns:
+The setup is split into three Git repos:
 
 1.  **[Talos Config Repo](https://github.com/davidlesicnik/homelab-talos)**: Creates the Talos cluster and bootstraps the K8s cluster.
-2.  **[Terraform Repo](https://github.com/davidlesicnik/homelab-tf)**: Uses Terraform to install core services like MetalLB, Ingress-Nginx, and ArgoCD. Also sets up the storages.
+2.  **[Terraform Repo](https://github.com/davidlesicnik/homelab-tf)**: Uses Terraform to install core services like MetalLB, Ingress-Nginx, and ArgoCD and to set up the storages.
 3.  **[Helm Charts Repo](https://github.com/davidlesicnik/homelab-argo)**: Contains all the application Helm charts that ArgoCD deploys and manages.
 
 ---
