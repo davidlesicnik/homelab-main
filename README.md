@@ -2,8 +2,6 @@
 
 This is the main repo for my Kubernetes home lab, fully automated using Talos, Terraform, and ArgoCD.
 
----
-
 ## Cluster Hardware
 
 This cluster runs on the following hardware:
@@ -13,8 +11,6 @@ This cluster runs on the following hardware:
 | `talos-mw1` | Master + Worker | 6 | 16 | 256 GB NVMe | Lenovo M920q |
 | `talos-m1` | Master | 2 | 4 | 128 GB SATA SSD | Fujitsu S920 |
 
----
-
 ## How It Works
 
 The setup is split into three Git repos:
@@ -22,8 +18,6 @@ The setup is split into three Git repos:
 1.  **[Talos Config Repo](https://github.com/davidlesicnik/homelab-talos)**: Creates the Talos cluster and bootstraps the K8s cluster.
 2.  **[Terraform Repo](https://github.com/davidlesicnik/homelab-tf)**: Uses Terraform to install core services like MetalLB, Ingress-Nginx, and ArgoCD and to set up the storages.
 3.  **[Helm Charts Repo](https://github.com/davidlesicnik/homelab-argo)**: Contains all the application Helm charts that ArgoCD deploys and manages.
-
----
 
 ## High-Level Setup
 
