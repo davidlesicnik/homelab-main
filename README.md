@@ -42,8 +42,9 @@ This cluster runs on the following hardware:
 
 | Hostname | Role | CPU Cores | RAM (GB) | Storage | Model/Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| `talos-mw1` | Master + Worker | 6 | 16 | 256 GB NVMe | Lenovo M920q |
-| `talos-m1` | Master | 2 | 4 | 128 GB SATA SSD | Fujitsu S920 |
+| `talos-m1` | Master | 2 | 4 | 128 GB SATA SSD | Fujitsu Futro S920 |
+| `talos-mw1` | Master + Worker | 6 | 16 | 256 GB NVMe | Lenovo ThinkDesk M920q |
+| `talos-mw2` | Master + Worker | 6 | 16 | 1TB NVMe | HP EliteDesk 600 G4 Mini |
 
 ## How It Works
 
